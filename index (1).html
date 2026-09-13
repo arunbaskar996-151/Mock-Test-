@@ -1,0 +1,826 @@
+<p>&lt;!DOCTYPE html&gt;</p>
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;title&gt;Placement Mock **** Platform&lt;/title&gt;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &lt;!-- ****** Fonts for ****** Typography --&gt;</p>
+<p>&nbsp; &nbsp; &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &lt;!-- Chart.js for ************** --&gt;</p>
+<p>&nbsp; &nbsp; &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;style&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; :root {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --primary: #4f46e5;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --primary-hover: #4338ca;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --secondary: #64748b;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --success: #10b981;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --danger: #ef4444;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --warning: #f59e0b;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --marked: #8b5cf6;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --bg-gradient: linear-gradient(135deg, #f8**** 0%, #e2e8f0 100%);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --card: #ffffff;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --text-main: #0f172a;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --text-light: #475569;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --border: #e2e8f0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --radius: 12px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --shadow: 0 10px 25px -5** rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; * { margin: 0; padding: 0; box-sizing: border-box; font-family: &apos;Inter&apos;, sans-serif; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; body { background: var(--bg-gradient); color: var(--text-main); line-height: 1.6; min-height: 100vh; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .hidden { display: none !important; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .container { max-width: 1280px; margin: 0 auto; padding: 24px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* ****** Cards */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .card {&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: var(--card); border-radius: var(--radius);&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box-shadow: var(--shadow); padding: 32px; margin-bottom: 24px;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 1px solid rgba(255,255,255,0.5);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; h1, h2, h3 { color: var(--text-main); font-weight: 600; letter-spacing: -0.02em; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* Buttons */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; button {&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: var(--primary); color: white; border: none;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 12px 24px; border-radius: 8px; cursor: pointer;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; font-size: 15px; font-weight: 500; transition: all 0.2s ease;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box-shadow: 0 4** 6** -1px rgba(79, 70, 229, 0.1);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; button:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 6px 8px -1px rgba(79, 70, 229, 0.2); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; button:active { transform: translateY(0); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; button.secondary { background: #f1f5f9; color: var(--text-main); box-shadow: none; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; button.secondary:hover { background: #e2e8f0; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; button.danger { background: var(--danger); box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; button.warning { background: var(--warning); box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.2); color: #fff;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* **** &amp; ************ */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .header-banner { text-align: center; padding: 60px 20px; background: white; border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 40px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .header-banner h1 { font-size: 36px; margin-bottom: 16px; color: var(--primary); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 32px 0; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .info-card { background: #f8fafc; padding: 24px; border-radius: 12px; text-align: center; border: 1px solid var(--border); transition: 0.3s; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .info-card:hover { border-color: var(--primary); transform: translateY(-3px); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .info-card b { font-size: 24px; color: var(--primary); display: block; margin-top: 8px; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* Test Header */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .test-header { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 16px 32px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .timer { font-size: 28px; font-weight: 700; font-family: &apos;Inter&apos;, monospace; letter-spacing: 1px; color: var(--primary); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .timer.warning { color: var(--warning); animation: pulse 2s infinite; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .timer.danger { color: var(--danger); animation: pulse 1s infinite; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* Test Layout */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .test-layout { display: grid; grid-template-columns: 1fr 340px; gap: 24px; margin-top: 24px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; @media (max-width: 900px) { .test-layout { grid-template-columns: 1fr; } }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* Question Area */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .question-meta { display: flex; justify-content: space-between; color: var(--text-light); margin-bottom: 16px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .badge { background: #e0e7ff; color: var(--primary); padding: 4px 10px; border-radius: 20px; font-size: 12px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .question-text { font-size: 20px; margin-bottom: 28px; font-weight: 500; color: #1e293b; line-height: 1.5; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .options-grid { display: grid; gap: 16px; margin-bottom: 32px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .option-label { display: flex; align-items: center; padding: 16px 20px; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s ease; background: #fff; font-size: 16px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .option-label:hover { border-color: #a5b4fc; background: #fefaff; transform: translateX(4px); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .option-label input { margin-right: 16px; width: 20px; height: 20px; accent-color: var(--primary); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .option-label.selected { border-color: var(--primary); background: #eef2ff; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08); }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .action-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 24px; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* ******* */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .palette-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 20px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .palette-btn { width: 100%; aspect-ratio: 1; border-radius: 8px; border: 2px solid transparent; background: #f1f5f9; font-weight: 600; cursor: pointer; font-size: 14px; color: var(--text-light); padding: 0;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .palette-btn.answered { background: var(--success); color: white; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .palette-btn.marked { background: var(--marked); color: white; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .palette-btn.unanswered { background: #f87171; color: white; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .palette-btn.active { border-color: var(--text-main); transform: scale(1.1); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .palette-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px; margin-bottom: 24px; color: var(--text-light); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .legend-item { display: flex; align-items: center; gap: 8px; font-weight: 500;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .legend-box { width: 14px; height: 14px; border-radius: 4px; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* ******* &amp; ************* */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .results-header { text-align: center; margin-bottom: 40px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .results-header h2 { font-size: 32px; color: var(--primary); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 32px;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .stat-card { background: white; padding: 24px; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .stat-value { font-size: 40px; font-weight: 700; color: var(--primary); margin-top: 8px; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .charts-container { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; @media (max-width: 800px) { .charts-container { grid-template-columns: 1fr; } }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .chart-box { background: white; padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .review-q { border: 1px solid var(--border); padding: 20px; border-radius: var(--radius); margin-bottom: 16px; background: white; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .correct-text { color: var(--success); font-weight: 600; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .wrong-text { color: var(--danger); font-weight: 600; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .explanation { background: #f8fafc; padding: 16px; border-radius: 8px; border-left: 4px solid var(--success); margin-top: 12px; font-size: 14px; color: var(--text-light);}</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* Calculator */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .calculator { position: fixed; bottom: 80px; left: 24px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 20px; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); z-index: 1000; display: none; width: 260px; border: 1px solid rgba(255,255,255,0.1);}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .calc-display { width: 100%; height: 50px; background: #1e293b; color: white; text-align: right; padding: 10px 15px; font-size: 24px; margin-bottom: 15px; border-radius: 8px; border: none; font-family: monospace;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .calc-btn { background: #334155; color: white; border: none; padding: 12px; font-size: 18px; cursor: pointer; border-radius: 8px; transition: 0.2s;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .calc-btn:hover { background: #475569; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .calc-btn.op { background: var(--primary); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .calc-btn.op:hover { background: var(--primary-hover); }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .calc-close { background: transparent; color: #94a3b8; width: 100%; text-align: right; padding: 0 0 10px 0; font-size: 14px; box-shadow: none;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .calc-close:hover { background: transparent; color: white; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; #toggle-calc-btn { position: fixed; bottom: 24px; left: 24px; z-index: 999; border-radius: 30px; padding: 12px 24px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; }</p>
+<p>&nbsp; &nbsp; &lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;!-- HOME SCREEN --&gt;</p>
+<p>&nbsp; &nbsp; &lt;div id=&quot;home-screen&quot; class=&quot;container&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;header-banner&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h1&gt;Placement Mock Test Platform&lt;/h1&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p style=&quot;color: var(--secondary); font-size: 18px; max-width: 600px; margin: 0 auto;&quot;&gt;An advanced, randomized assessment engine designed ** prepare you for ****** placements.&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;info-grid&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;info-card&quot;&gt;Total Questions&lt;b&gt;50 MCQs&lt;/b&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;info-card&quot;&gt;Time Limit&lt;b&gt;65 Mins&lt;/b&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;info-card&quot;&gt;Syllabus Coverage&lt;b&gt;5 Sections&lt;/b&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** onclick=&quot;showScreen(&apos;instructions-screen&apos;)&quot; style=&quot;font-size: 18px; padding: 16px 40px; border-radius: 30px;&quot;&gt;View ************ &amp; Proceed&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;!-- ************ SCREEN --&gt;</p>
+<p>&nbsp; &nbsp; &lt;div id=&quot;instructions-screen&quot; class=&quot;container hidden&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;card&quot; style=&quot;margin-top: 40px;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2&gt;Test Instructions&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** style=&quot;background: #f8fafc; border: *** solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;ul style=&quot;margin-left: 20px; display: flex; flex-direction: column; gap: 12px; color: var(--text-light);&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;b&gt;******** Questions:&lt;/b&gt; *** test ****** will ********* *** order of all 50 questions upon starting.&lt;/li&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;b&gt;Syllabus Distribution:&lt;/b&gt; Numerical (11), Verbal (12), Reasoning (11), ***** (5), Data ************** (11).&lt;/li&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;b&gt;Auto-Submit:&lt;/b&gt; The **** will automatically submit when the 65-****** ***** reaches zero.&lt;/li&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;b&gt;Scoring:&lt;/b&gt; Each question carries 1 mark. There is &lt;b&gt;no negative marking&lt;/b&gt;.&lt;/li&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;b&gt;Tools:&lt;/b&gt; A Virtual Calculator is ******** at the bottom left of *** screen.&lt;/li&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;li&gt;&lt;b&gt;Analytics:&lt;/b&gt; Interactive visualizations (***** &amp; Doughnut charts) will be generated post-submission.&lt;/li&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/ul&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;display: flex; gap: 16px; justify-content: flex-end;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** onclick=&quot;showScreen(&apos;home-screen&apos;)&quot; class=&quot;secondary&quot;&gt;Back&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;startTest()&quot;&gt;Initialize &amp; ***** Test&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;!-- TEST SCREEN --&gt;</p>
+<p>&nbsp; &nbsp; &lt;*** id=&quot;test-screen&quot; class=&quot;hidden&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;test-header&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 style=&quot;margin:0;&quot;&gt;Mock Assessment&lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;timer&quot; class=&quot;timer&quot;&gt;65:00&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;submitTest(true)&quot; class=&quot;danger&quot; style=&quot;border-radius: 30px;&quot;&gt;Submit Test&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;container test-layout&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Left: ******** **** --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;card&quot; style=&quot;display: flex; flex-direction: column;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;question-meta&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;**** id=&quot;q-section-badge&quot; class=&quot;badge&quot;&gt;Section&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span style=&quot;color: var(--secondary);&quot;&gt;Diff: &lt;span id=&quot;q-difficulty&quot;&gt;Easy&lt;/span&gt;&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 style=&quot;color: var(--primary); font-size: 16px; margin-bottom: 12px; text-transform: uppercase;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Question &lt;span id=&quot;q-number&quot;&gt;1&lt;/span&gt; ** 50 &lt;**** style=&quot;color:var(--text-light); font-weight: 400; font-size: 14px;&quot;&gt;| &lt;**** id=&quot;q-topic&quot;&gt;Topic&lt;/span&gt;&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;q-text&quot; class=&quot;question-text&quot;&gt;******* question...&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;options-container&quot; class=&quot;options-grid&quot; style=&quot;flex-grow: 1;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Options injected here --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;action-buttons&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;display: flex; gap: 10px;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;prevQuestion()&quot; class=&quot;secondary&quot; id=&quot;btn-prev&quot;&gt;&larr; Previous&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** onclick=&quot;nextQuestion()&quot; id=&quot;btn-next&quot;&gt;**** &rarr;&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;display: flex; gap: 10px;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** onclick=&quot;clearResponse()&quot; class=&quot;secondary&quot;&gt;***** Response&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;markForReview()&quot; class=&quot;warning&quot; id=&quot;btn-mark&quot;&gt;★ Mark *** Review&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Right: Palette Area --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;card&quot; style=&quot;position: sticky; top: 100px;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 style=&quot;margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;&quot;&gt;Question Palette&lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;palette-legend&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;legend-item&quot;&gt;&lt;div class=&quot;legend-box&quot; style=&quot;background:var(--success)&quot;&gt;&lt;/div&gt; Answered&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;legend-item&quot;&gt;&lt;*** class=&quot;legend-box&quot; style=&quot;background:#f87171&quot;&gt;&lt;/div&gt; Not Answered&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;legend-item&quot;&gt;&lt;div class=&quot;legend-box&quot; style=&quot;background:var(--marked)&quot;&gt;&lt;/div&gt; Marked&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;legend-item&quot;&gt;&lt;div class=&quot;legend-box&quot; style=&quot;background:#f1f5f9; border: 1px solid var(--border);&quot;&gt;&lt;/div&gt; Unvisited&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;palette-container&quot; class=&quot;palette-grid&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Buttons injected here --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;!-- ******* SCREEN --&gt;</p>
+<p>&nbsp; &nbsp; &lt;div id=&quot;results-screen&quot; class=&quot;container hidden&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;results-header&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2&gt;Assessment Report Generated&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p style=&quot;color: var(--secondary);&quot;&gt;Review your performance analytics and visualizations below.&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Core Stats --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;stats-grid&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;stat-card&quot;&gt;&lt;div style=&quot;color:var(--text-light); font-weight:600;&quot;&gt;***** Score&lt;/div&gt;&lt;div id=&quot;r-score&quot; class=&quot;stat-value&quot;&gt;0/50&lt;/div&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;stat-card&quot;&gt;&lt;*** style=&quot;color:var(--text-light); font-weight:600;&quot;&gt;Percentage&lt;/div&gt;&lt;div id=&quot;r-percent&quot; class=&quot;stat-value&quot;&gt;0%&lt;/div&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;stat-card&quot;&gt;&lt;div style=&quot;color:var(--text-light); font-weight:600;&quot;&gt;Accuracy&lt;/div&gt;&lt;*** id=&quot;r-accuracy&quot; class=&quot;stat-value&quot;&gt;0%&lt;/div&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;stat-card&quot;&gt;&lt;div style=&quot;color:var(--text-light); font-weight:600;&quot;&gt;Time Taken&lt;/div&gt;&lt;div id=&quot;r-time&quot; class=&quot;stat-value&quot; style=&quot;color:var(--text-main);&quot;&gt;00:00&lt;/div&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Visualizations --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;charts-container&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;chart-box&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 style=&quot;margin-bottom: 20px;&quot;&gt;Attempt Accuracy&lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;position: relative; height: 250px; width: 100%; display: flex; justify-content: center;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;canvas id=&quot;accuracyChart&quot;&gt;&lt;/canvas&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;chart-box&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 style=&quot;margin-bottom: 20px;&quot;&gt;Sectional Performance&lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;position: relative; height: 250px; width: 100%; display: flex; justify-content: center;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** id=&quot;radarChart&quot;&gt;&lt;/canvas&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Export **** --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;card&quot; style=&quot;display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3&gt;Power BI Data Integration&lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p style=&quot;font-size: 14px; color: var(--text-light);&quot;&gt;Export granular test result data in a Power BI optimized CSV format.&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;exportPowerBI()&quot; style=&quot;background: #0f172a;&quot;&gt;Download CSV Export&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Review --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;card&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** style=&quot;display:flex; justify-content:space-between; align-items:center; border-bottom: 1px ***** var(--border); padding-bottom: 16px; margin-bottom: 24px;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3&gt;Detailed Question Review&lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;toggleReview()&quot; class=&quot;secondary&quot;&gt;Show/Hide Explanations&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;review-container&quot; class=&quot;hidden&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- ****** injected here --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;text-align: center; margin-bottom: 60px;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;location.reload()&quot; style=&quot;padding: 16px 40px; border-radius: 30px;&quot;&gt;Return Home / ****** Test&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;!-- CALCULATOR --&gt;</p>
+<p>&nbsp; &nbsp; &lt;****** id=&quot;toggle-calc-btn&quot; onclick=&quot;toggleCalculator()&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;*** width=&quot;20&quot; height=&quot;20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M9 7h6** 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Calculator</p>
+<p>&nbsp; &nbsp; &lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &lt;div id=&quot;calculator&quot; class=&quot;calculator&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-close&quot; onclick=&quot;toggleCalculator()&quot;&gt;Close ✕&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;text&quot; id=&quot;calc-display&quot; class=&quot;calc-display&quot; disabled value=&quot;0&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;calc-grid&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;7&apos;)&quot;&gt;7&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;8&apos;)&quot;&gt;8&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;9&apos;)&quot;&gt;9&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** class=&quot;calc-btn op&quot; onclick=&quot;calcInput(&apos;/&apos;)&quot;&gt;&divide;&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;4&apos;)&quot;&gt;4&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;5&apos;)&quot;&gt;5&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;6&apos;)&quot;&gt;6&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-*** op&quot; onclick=&quot;calcInput(&apos;*&apos;)&quot;&gt;&times;&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;1&apos;)&quot;&gt;1&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;2&apos;)&quot;&gt;2&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;3&apos;)&quot;&gt;3&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn op&quot; onclick=&quot;calcInput(&apos;-&apos;)&quot;&gt;-&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;0&apos;)&quot;&gt;0&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn&quot; onclick=&quot;calcInput(&apos;.&apos;)&quot;&gt;.&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** class=&quot;calc-btn op&quot; style=&quot;background:#ef4444;&quot; onclick=&quot;calcC &lt;button class=&quot;calc-btn op&quot; onclick=&quot;calcInput(&apos;+&apos;)&quot;&gt;+&lt;/button&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn op&quot; onclick=&quot;calcSqrt()&quot; style=&quot;grid-column: **** 2; background:#64748b;&quot;&gt;&radic;&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;calc-btn op&quot; onclick=&quot;calcEval()&quot; style=&quot;grid-column: span 2; background: var(--success);&quot;&gt;=&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&lt;script&gt;</p>
+<p>/*&nbsp;</p>
+<p>=========================================</p>
+<p>DATABASE: Exactly 50 Questions Structure</p>
+<p>=========================================</p>
+<p>*/</p>
+<p>const rawQuestionsDB = [</p>
+<p>&nbsp; &nbsp; // --- SECTION 1: ********* ******* (11) ---</p>
+<p>&nbsp; &nbsp; {id:1, section:&quot;Numerical Ability&quot;, topic:&quot;Simplification&quot;, difficulty:&quot;Easy&quot;, question:&quot;What is the value of 15% of 400 + 20% of 300?&quot;, options:[&quot;100&quot;,&quot;120&quot;,&quot;130&quot;,&quot;140&quot;], correctAnswer:&quot;120&quot;, explanation:&quot;(15/100 * 400) + (20/100 * 300) = 60 + 60 = 120.&quot;},</p>
+<p>&nbsp; &nbsp; {id:2, section:&quot;Numerical Ability&quot;, topic:&quot;Number System&quot;, difficulty:&quot;Easy&quot;, question:&quot;Which of the following is a prime number?&quot;, options:[&quot;143&quot;,&quot;169&quot;,&quot;173&quot;,&quot;187&quot;], correctAnswer:&quot;173&quot;, explanation:&quot;143=11*13, 169=13*13, 187=11*17. 173 has no divisors other than 1 and itself.&quot;},</p>
+<p>&nbsp; &nbsp; {id:3, section:&quot;Numerical Ability&quot;, topic:&quot;Decimals&quot;, difficulty:&quot;Easy&quot;, question:&quot;What is the value of 0.04 x 0.0162?&quot;, options:[&quot;0.000648&quot;,&quot;0.00648&quot;,&quot;0.0648&quot;,&quot;0.648&quot;], correctAnswer:&quot;0.000648&quot;, explanation:&quot;4 * 162 = 648. There are 2 + 4 = 6 decimal places. So, 0.000648.&quot;},</p>
+<p>&nbsp; &nbsp; {id:4, section:&quot;Numerical Ability&quot;, topic:&quot;HCF &amp; LCM&quot;, difficulty:&quot;Medium&quot;, question:&quot;The HCF of two numbers is 11 and their LCM is 7700. If one of the numbers is 275, find the other.&quot;, options:[&quot;279&quot;,&quot;283&quot;,&quot;308&quot;,&quot;318&quot;], correctAnswer:&quot;308&quot;, explanation:&quot;HCF * LCM = Product of numbers. 11 * 7700 = 275 * x =&gt; x = 84700 / 275 = 308.&quot;},</p>
+<p>&nbsp; &nbsp; {id:5, section:&quot;Numerical Ability&quot;, topic:&quot;Fractions&quot;, difficulty:&quot;Medium&quot;, question:&quot;Arrange 2/3, 3/4, 4/5, and 5/6 in descending order.&quot;, options:[&quot;5/6, 4/5, 3/4, 2/3&quot;,&quot;2/3, 3/4, 4/5, 5/6&quot;,&quot;5/6, 3/4, 4/5, 2/3&quot;,&quot;4/5, 5/6, 3/4, 2/3&quot;], correctAnswer:&quot;5/6, 4/5, 3/4, 2/3&quot;, explanation:&quot;Decimal equivalents: 2/3=0.66, 3/4=0.75, 4/5=0.8, 5/6=0.83.&quot;},</p>
+<p>&nbsp; &nbsp; {id:6, section:&quot;Numerical Ability&quot;, topic:&quot;Average&quot;, difficulty:&quot;Medium&quot;, question:&quot;The average of 5 consecutive odd numbers is 25. What is the smallest number?&quot;, options:[&quot;19&quot;,&quot;21&quot;,&quot;23&quot;,&quot;25&quot;], correctAnswer:&quot;21&quot;, explanation:&quot;Let numbers be x, x+2, x+4, x+6, x+8. Mean is x+4 = 25 =&gt; x = 21.&quot;},</p>
+<p>&nbsp; &nbsp; {id:7, section:&quot;Numerical Ability&quot;, topic:&quot;Ratio &amp; Proportion&quot;, difficulty:&quot;Medium&quot;, question:&quot;Two numbers are in the ratio 3:4. If 6 is added to each, the ratio becomes 4:5. Find the numbers.&quot;, options:[&quot;15 and 20&quot;,&quot;18 and 24&quot;,&quot;21 and 28&quot;,&quot;24 and 32&quot;], correctAnswer:&quot;18 and 24&quot;, explanation:&quot;(3x + 6) / (4x + 6) = 4/5 =&gt; 15x + 30 = 16x + 24 =&gt; x = 6. Numbers are 18 and 24.&quot;},</p>
+<p>&nbsp; &nbsp; {id:8, section:&quot;Numerical Ability&quot;, topic:&quot;Surds &amp; Indices&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Simplify: (27)^(2/3) * (81)^(-1/2)&quot;, options:[&quot;1&quot;,&quot;3&quot;,&quot;1/3&quot;,&quot;9&quot;], correctAnswer:&quot;1&quot;, explanation:&quot;(3^3)^(2/3) * (3^4)^(-1/2) = 3^2 * 3^-2 = 9 * (1/9) = 1.&quot;},</p>
+<p>&nbsp; &nbsp; {id:9, section:&quot;Numerical Ability&quot;, topic:&quot;Simplification&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Evaluate: (0.1 * 0.1 * 0.1 + 0.2 * 0.2 * 0.2) / (0.1 * 0.1 - 0.1 * 0.2 + 0.2 * 0.2)&quot;, options:[&quot;0.1&quot;,&quot;0.2&quot;,&quot;0.3&quot;,&quot;0.4&quot;], correctAnswer:&quot;0.3&quot;, explanation:&quot;Uses identity a^3+b^3=(a+b)(a^2-ab+b^2). Answer is a+b = 0.1+0.2 = 0.3.&quot;},</p>
+<p>&nbsp; &nbsp; {id:10, section:&quot;Numerical Ability&quot;, topic:&quot;Number System&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Find the unit digit in the product (2467)^153 * (341)^72.&quot;, options:[&quot;1&quot;,&quot;3&quot;,&quot;7&quot;,&quot;9&quot;], correctAnswer:&quot;7&quot;, explanation:&quot;Unit digit of 2467 is 7. 153 mod 4 = 1. So 7^1 = 7. Unit digit of 341 is 1. 7 * 1 = 7.&quot;},</p>
+<p>&nbsp; &nbsp; {id:11, section:&quot;Numerical Ability&quot;, topic:&quot;HCF &amp; LCM&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Find the greatest number that will divide 43, 91 and 183 so as to leave the same remainder in each case.&quot;, options:[&quot;4&quot;,&quot;7&quot;,&quot;9&quot;,&quot;13&quot;], correctAnswer:&quot;4&quot;, explanation:&quot;Differences: 91-43=48, 183-91=92, 183-43=140. HCF of (48, 92, 140) = 4.&quot;},</p>
+<p><br></p>
+<p>&nbsp; &nbsp; // --- SECTION 2: ****** Ability (12) ---</p>
+<p>&nbsp; &nbsp; {id:12, section:&quot;Verbal Ability&quot;, topic:&quot;Synonyms&quot;, difficulty:&quot;Easy&quot;, question:&quot;Choose the synonym for &apos;OBSTINATE&apos;.&quot;, options:[&quot;Stubborn&quot;,&quot;Flexible&quot;,&quot;Docile&quot;,&quot;Angry&quot;], correctAnswer:&quot;Stubborn&quot;, explanation:&quot;Obstinate means refusing to change one&apos;s opinion, which is the definition of stubborn.&quot;},</p>
+<p>&nbsp; &nbsp; {id:13, section:&quot;Verbal Ability&quot;, topic:&quot;Antonyms&quot;, difficulty:&quot;Easy&quot;, question:&quot;Choose the antonym for &apos;DILIGENT&apos;.&quot;, options:[&quot;Hardworking&quot;,&quot;Lazy&quot;,&quot;Intelligent&quot;,&quot;Careful&quot;], correctAnswer:&quot;Lazy&quot;, explanation:&quot;Diligent means showing care and effort. Lazy is the exact opposite.&quot;},</p>
+<p>&nbsp; &nbsp; {id:14, section:&quot;Verbal Ability&quot;, topic:&quot;Fill in the blanks&quot;, difficulty:&quot;Medium&quot;, question:&quot;He has been waiting here ______ morning.&quot;, options:[&quot;since&quot;,&quot;for&quot;,&quot;from&quot;,&quot;by&quot;], correctAnswer:&quot;since&quot;, explanation:&quot;&apos;Since&apos; is used for a specific point in time (morning).&quot;},</p>
+<p>&nbsp; &nbsp; {id:15, section:&quot;Verbal Ability&quot;, topic:&quot;Sentence Correction&quot;, difficulty:&quot;Medium&quot;, question:&quot;Identify the error: &apos;Neither of the boys have returned.&apos;&quot;, options:[&quot;Neither of&quot;,&quot;the boys&quot;,&quot;have&quot;,&quot;returned&quot;], correctAnswer:&quot;have&quot;, explanation:&quot;&apos;Neither of&apos; takes a singular verb. It should be &apos;has&apos; returned.&quot;},</p>
+<p>&nbsp; &nbsp; {id:16, section:&quot;Verbal Ability&quot;, topic:&quot;Idioms &amp; Phrases&quot;, difficulty:&quot;Medium&quot;, question:&quot;What does the idiom &apos;To spill the beans&apos; mean?&quot;, options:[&quot;To be clumsy&quot;,&quot;To reveal a secret&quot;,&quot;To cook poorly&quot;,&quot;To create a mess&quot;], correctAnswer:&quot;To reveal a secret&quot;, explanation:&quot;Spilling the beans means to accidentally or prematurely reveal information.&quot;},</p>
+<p>&nbsp; &nbsp; {id:17, section:&quot;Verbal Ability&quot;, topic:&quot;One Word Substitution&quot;, difficulty:&quot;Medium&quot;, question:&quot;A person who knows many languages is called a:&quot;, options:[&quot;Linguist&quot;,&quot;Polyglot&quot;,&quot;Grammarian&quot;,&quot;Bilingual&quot;], correctAnswer:&quot;Polyglot&quot;, explanation:&quot;A polyglot is someone who knows or uses several languages.&quot;},</p>
+<p>&nbsp; &nbsp; {id:18, section:&quot;Verbal Ability&quot;, topic:&quot;Spelling&quot;, difficulty:&quot;Medium&quot;, question:&quot;Choose the correctly spelt word.&quot;, options:[&quot;Accomodate&quot;,&quot;Accommodate&quot;,&quot;Acomodate&quot;,&quot;Acommodate&quot;], correctAnswer:&quot;Accommodate&quot;, explanation:&quot;The correct spelling is A-C-C-O-M-M-O-D-A-T-E (double &apos;c&apos; and double &apos;m&apos;).&quot;},</p>
+<p>&nbsp; &nbsp; {id:19, section:&quot;Verbal Ability&quot;, topic:&quot;Active/Passive Voice&quot;, difficulty:&quot;Medium&quot;, question:&quot;Change to passive voice: &apos;The chef is preparing the meal.&apos;&quot;, options:[&quot;The meal was prepared by the chef.&quot;,&quot;The meal is being prepared by the chef.&quot;,&quot;The meal has been prepared by the chef.&quot;,&quot;The meal is prepared by the chef.&quot;], correctAnswer:&quot;The meal is being prepared by the chef.&quot;, explanation:&quot;Present continuous tense changes to &apos;is being + past participle&apos;.&quot;},</p>
+<p>&nbsp; &nbsp; {id:20, section:&quot;Verbal Ability&quot;, topic:&quot;Reading Comprehension&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Read: &apos;The transition to clean energy is not just a technological shift but a social one.&apos; What is implied?&quot;, options:[&quot;Tech is unimportant&quot;,&quot;Social change drives tech&quot;,&quot;Clean energy affects society fundamentally&quot;,&quot;Only tech matters&quot;], correctAnswer:&quot;Clean energy affects society fundamentally&quot;, explanation:&quot;The sentence implies the impact or nature of the transition spans into societal structure, not just machines.&quot;},</p>
+<p>&nbsp; &nbsp; {id:21, section:&quot;Verbal Ability&quot;, topic:&quot;Ordering of Sentences&quot;, difficulty:&quot;Difficult&quot;, question:&quot;P: The virus mutates fast. Q: Scientists are worried. R: Finding a vaccine is tough. Order these logically.&quot;, options:[&quot;P, R, Q&quot;,&quot;Q, P, R&quot;,&quot;P, Q, R&quot;,&quot;R, P, Q&quot;], correctAnswer:&quot;P, R, Q&quot;, explanation:&quot;P establishes the premise. R is the consequence. Q is the emotional result. (Or P -&gt; R causes Q).&quot;},</p>
+<p>&nbsp; &nbsp; {id:22, section:&quot;Verbal Ability&quot;, topic:&quot;Sentence Improvement&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Improve: &apos;If I was the PM, I would ban plastics.&apos;&quot;, options:[&quot;If I am&quot;,&quot;If I were&quot;,&quot;If I had been&quot;,&quot;No improvement&quot;], correctAnswer:&quot;If I were&quot;, explanation:&quot;Subjunctive mood for unreal/hypothetical situations requires &apos;were&apos; regardless of the subject.&quot;},</p>
+<p>&nbsp; &nbsp; {id:23, section:&quot;Verbal Ability&quot;, topic:&quot;Analogy&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Symphony : Composer :: Fresco : ?&quot;, options:[&quot;Painter&quot;,&quot;Singer&quot;,&quot;Sculptor&quot;,&quot;Architect&quot;], correctAnswer:&quot;Painter&quot;, explanation:&quot;A composer creates a symphony. A painter creates a fresco (a type of mural painting).&quot;},</p>
+<p><br></p>
+<p>&nbsp; &nbsp; // --- SECTION 3: ********* Ability (11) ---</p>
+<p>&nbsp; &nbsp; {id:24, section:&quot;Reasoning Ability&quot;, topic:&quot;Coding-Decoding&quot;, difficulty:&quot;Easy&quot;, question:&quot;If CAT is coded as 3120, what will DOG be coded as?&quot;, options:[&quot;4157&quot;,&quot;4156&quot;,&quot;4147&quot;,&quot;4158&quot;], correctAnswer:&quot;4157&quot;, explanation:&quot;Letter positions: C=3, A=1, T=20. D=4, O=15, G=7. Hence 4157.&quot;},</p>
+<p>&nbsp; &nbsp; {id:25, section:&quot;Reasoning Ability&quot;, topic:&quot;Blood Relations&quot;, difficulty:&quot;Easy&quot;, question:&quot;Pointing to a photograph, a man said, &apos;I have no brother or sister but that man&apos;s father is my father&apos;s son.&apos; Whose photograph was it?&quot;, options:[&quot;His own&quot;,&quot;His son&apos;s&quot;,&quot;His father&apos;s&quot;,&quot;His nephew&apos;s&quot;], correctAnswer:&quot;His son&apos;s&quot;, explanation:&quot;&apos;My father&apos;s son&apos; is the man himself (since he has no siblings). So, the photograph man&apos;s father is the speaker. It is his son&apos;s photograph.&quot;},</p>
+<p>&nbsp; &nbsp; {id:26, section:&quot;Reasoning Ability&quot;, topic:&quot;Analogy&quot;, difficulty:&quot;Easy&quot;, question:&quot;Oasis is to Sand as Island is to...&quot;, options:[&quot;Water&quot;,&quot;Sea&quot;,&quot;Ocean&quot;,&quot;Waves&quot;], correctAnswer:&quot;Water&quot;, explanation:&quot;An oasis is surrounded by sand, just as an island is surrounded by water.&quot;},</p>
+<p>&nbsp; &nbsp; {id:27, section:&quot;Reasoning Ability&quot;, topic:&quot;Direction Sense&quot;, difficulty:&quot;Medium&quot;, question:&quot;A man walks 5km towards South and then turns to the right. After walking 3km he turns to the left and walks 5km. In which direction is he from the starting place?&quot;, options:[&quot;West&quot;,&quot;South&quot;,&quot;South-West&quot;,&quot;North-East&quot;], correctAnswer:&quot;South-West&quot;, explanation:&quot;He goes South, right is West, left is South. Final position is South-West from start.&quot;},</p>
+<p>&nbsp; &nbsp; {id:28, section:&quot;Reasoning Ability&quot;, topic:&quot;Number Series&quot;, difficulty:&quot;Medium&quot;, question:&quot;Find the missing number: 2, 6, 12, 20, 30, ?&quot;, options:[&quot;40&quot;,&quot;42&quot;,&quot;44&quot;,&quot;46&quot;], correctAnswer:&quot;42&quot;, explanation:&quot;Differences: 4, 6, 8, 10... next difference is 12. 30 + 12 = 42.&quot;},</p>
+<p>&nbsp; &nbsp; {id:29, section:&quot;Reasoning Ability&quot;, topic:&quot;Syllogism&quot;, difficulty:&quot;Medium&quot;, question:&quot;Statements: All dogs are cats. Some cats are rats. Conclusion: I. Some dogs are rats. II. Some rats are cats.&quot;, options:[&quot;Only I follows&quot;,&quot;Only II follows&quot;,&quot;Both I &amp; II follow&quot;,&quot;Neither follows&quot;], correctAnswer:&quot;Only II follows&quot;, explanation:&quot;Because some cats are rats, the reverse &apos;Some rats are cats&apos; is true. Dogs being rats is not definite.&quot;},</p>
+<p>&nbsp; &nbsp; {id:30, section:&quot;Reasoning Ability&quot;, topic:&quot;Seating Arrangement&quot;, difficulty:&quot;Medium&quot;, question:&quot;Five friends A, B, C, D, E are sitting in a row facing north. C is between A and E. D is to the immediate right of E. B is at the extreme right. Who is in the middle?&quot;, options:[&quot;A&quot;,&quot;C&quot;,&quot;E&quot;,&quot;D&quot;], correctAnswer:&quot;E&quot;, explanation:&quot;Arrangement is A, C, E, D, B. E is exactly in the middle.&quot;},</p>
+<p>&nbsp; &nbsp; {id:31, section:&quot;Reasoning Ability&quot;, topic:&quot;Logical Sequence&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Arrange the words logically: 1. Birth 2. Death 3. Funeral 4. Marriage 5. Education&quot;, options:[&quot;1, 5, 4, 2, 3&quot;,&quot;1, 4, 5, 2, 3&quot;,&quot;1, 5, 2, 4, 3&quot;,&quot;1, 4, 2, 5, 3&quot;], correctAnswer:&quot;1, 5, 4, 2, 3&quot;, explanation:&quot;Chronological order of life events: Birth, Education, Marriage, Death, Funeral.&quot;},</p>
+<p>&nbsp; &nbsp; {id:32, section:&quot;Reasoning Ability&quot;, topic:&quot;Data Sufficiency&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Question: What is the age of P? Stmt 1: P is 5 years older than Q. Stmt 2: R is 3 years younger than Q.&quot;, options:[&quot;Stmt 1 alone is sufficient&quot;,&quot;Stmt 2 alone is sufficient&quot;,&quot;Both statements together are sufficient&quot;,&quot;Data in both statements is not sufficient&quot;], correctAnswer:&quot;Data in both statements is not sufficient&quot;, explanation:&quot;We only get relative ages (P = Q+5, R = Q-3). No absolute age is given.&quot;},</p>
+<p>&nbsp; &nbsp; {id:33, section:&quot;Reasoning Ability&quot;, topic:&quot;Puzzle Test&quot;, difficulty:&quot;Difficult&quot;, question:&quot;If 3rd December 1990 is Sunday, what day is 3rd January 1991?&quot;, options:[&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;], correctAnswer:&quot;Wednesday&quot;, explanation:&quot;Days in Dec = 31. 31 - 3 = 28 days left in Dec + 3 days in Jan = 31 days. 31 mod 7 = 3 odd days. Sunday + 3 = Wednesday.&quot;},</p>
+<p>&nbsp; &nbsp; {id:34, section:&quot;Reasoning Ability&quot;, topic:&quot;Clocks &amp; Calendars&quot;, difficulty:&quot;Difficult&quot;, question:&quot;At what time between 4 and 5 o&apos;clock will the hands of a clock be at right angles?&quot;, options:[&quot;4:05 5/11&quot;,&quot;4:38 2/11&quot;,&quot;Both A and B&quot;,&quot;Neither&quot;], correctAnswer:&quot;Both A and B&quot;, explanation:&quot;Angle = |30H - 5.5M|. 90 = |120 - 5.5M|. Gives 5.5M = 30 =&gt; M = 60/11 = 5 5/11. And 5.5M = 210 =&gt; M = 420/11 = 38 2/11.&quot;},</p>
+<p><br></p>
+<p>&nbsp; &nbsp; // --- SECTION 4: Quantitative ******** (5) ---</p>
+<p>&nbsp; &nbsp; {id:35, section:&quot;Quantitative Aptitude&quot;, topic:&quot;Percentages&quot;, difficulty:&quot;Easy&quot;, question:&quot;If A&apos;s salary is 20% less than B&apos;s salary, by how much percent is B&apos;s salary more than A&apos;s?&quot;, options:[&quot;20%&quot;,&quot;25%&quot;,&quot;30%&quot;,&quot;33.33%&quot;], correctAnswer:&quot;25%&quot;, explanation:&quot;Let B=100, A=80. B is more by 20. % = (20/80)*100 = 25%.&quot;},</p>
+<p>&nbsp; &nbsp; {id:36, section:&quot;Quantitative Aptitude&quot;, topic:&quot;Profit &amp; Loss&quot;, difficulty:&quot;Easy&quot;, question:&quot;A person bought a book for ₹200 and sold it for ₹250. Find his profit percentage.&quot;, options:[&quot;20%&quot;,&quot;25%&quot;,&quot;30%&quot;,&quot;15%&quot;], correctAnswer:&quot;25%&quot;, explanation:&quot;Profit = 250-200 = 50. Profit % = (50/200)*100 = 25%.&quot;},</p>
+<p>&nbsp; &nbsp; {id:37, section:&quot;Quantitative Aptitude&quot;, topic:&quot;Time &amp; Work&quot;, difficulty:&quot;Medium&quot;, question:&quot;A can do a piece of work in 10 days and B can do it in 15 days. How long will they take if both work together?&quot;, options:[&quot;5 days&quot;,&quot;6 days&quot;,&quot;7 days&quot;,&quot;8 days&quot;], correctAnswer:&quot;6 days&quot;, explanation:&quot;(1/10) + (1/15) = (3+2)/30 = 5/30 = 1/6. So 6 days.&quot;},</p>
+<p>&nbsp; &nbsp; {id:38, section:&quot;Quantitative Aptitude&quot;, topic:&quot;Time &amp; Distance&quot;, difficulty:&quot;Medium&quot;, question:&quot;A train 120m long is running at 54 km/hr. How much time will it take to pass a pole?&quot;, options:[&quot;6 sec&quot;,&quot;8 sec&quot;,&quot;10 sec&quot;,&quot;12 sec&quot;], correctAnswer:&quot;8 sec&quot;, explanation:&quot;Speed = 54 * (5/18) = 15 m/s. Time = Distance / Speed = 120 / 15 = 8 seconds.&quot;},</p>
+<p>&nbsp; &nbsp; {id:39, section:&quot;Quantitative Aptitude&quot;, topic:&quot;Simple Interest&quot;, difficulty:&quot;Medium&quot;, question:&quot;What is the simple interest on ₹5000 at 8% per annum for 2 years?&quot;, options:[&quot;₹600&quot;,&quot;₹800&quot;,&quot;₹1000&quot;,&quot;₹1200&quot;], correctAnswer:&quot;₹800&quot;, explanation:&quot;SI = (P*R*T)/100 = (5000 * 8 * 2) / 100 = 800.&quot;},</p>
+<p><br></p>
+<p>&nbsp; &nbsp; // --- SECTION 5: Data Interpretation (11) ---</p>
+<p>&nbsp; &nbsp; {id:40, section:&quot;Data Interpretation&quot;, topic:&quot;Table Charts&quot;, difficulty:&quot;Easy&quot;, question:&quot;In 2020, Company A made ₹500M and B made ₹400M. What is the ratio of A&apos;s revenue to B&apos;s?&quot;, options:[&quot;4:5&quot;,&quot;5:4&quot;,&quot;1:2&quot;,&quot;2:1&quot;], correctAnswer:&quot;5:4&quot;, explanation:&quot;500:400 simplifies to 5:4.&quot;},</p>
+<p>&nbsp; &nbsp; {id:41, section:&quot;Data Interpretation&quot;, topic:&quot;Table Charts&quot;, difficulty:&quot;Easy&quot;, question:&quot;If a class has 30 boys and 20 girls, what percentage of the class are girls?&quot;, options:[&quot;30%&quot;,&quot;40%&quot;,&quot;50%&quot;,&quot;60%&quot;], correctAnswer:&quot;40%&quot;, explanation:&quot;Total = 50. Girls = 20. (20/50)*100 = 40%.&quot;},</p>
+<p>&nbsp; &nbsp; {id:42, section:&quot;Data Interpretation&quot;, topic:&quot;Bar Graphs&quot;, difficulty:&quot;Medium&quot;, question:&quot;Sales in Yr1=100, Yr2=120, Yr3=150. What is the average sales across 3 years?&quot;, options:[&quot;120&quot;,&quot;123.33&quot;,&quot;130&quot;,&quot;135&quot;], correctAnswer:&quot;123.33&quot;, explanation:&quot;(100+120+150)/3 = 370 / 3 = 123.33.&quot;},</p>
+<p>&nbsp; &nbsp; {id:43, section:&quot;Data Interpretation&quot;, topic:&quot;Bar Graphs&quot;, difficulty:&quot;Medium&quot;, question:&quot;If production rose from 40k to 50k, what is the percentage increase?&quot;, options:[&quot;20%&quot;,&quot;25%&quot;,&quot;30%&quot;,&quot;10%&quot;], correctAnswer:&quot;25%&quot;, explanation:&quot;Increase = 10k. (10/40) * 100 = 25%.&quot;},</p>
+<p>&nbsp; &nbsp; {id:44, section:&quot;Data Interpretation&quot;, topic:&quot;Pie Charts&quot;, difficulty:&quot;Medium&quot;, question:&quot;In a pie chart, if &apos;Rent&apos; covers an angle of 72 degrees, what percentage of the total budget is Rent?&quot;, options:[&quot;10%&quot;,&quot;20%&quot;,&quot;25%&quot;,&quot;30%&quot;], correctAnswer:&quot;20%&quot;, explanation:&quot;Total angle is 360. Percentage = (72 / 360) * 100 = 20%.&quot;},</p>
+<p>&nbsp; &nbsp; {id:45, section:&quot;Data Interpretation&quot;, topic:&quot;Pie Charts&quot;, difficulty:&quot;Medium&quot;, question:&quot;If total budget is ₹50,000 and Food is 30%, how much is spent on Food?&quot;, options:[&quot;₹12,000&quot;,&quot;₹15,000&quot;,&quot;₹18,000&quot;,&quot;₹20,000&quot;], correctAnswer:&quot;₹15,000&quot;, explanation:&quot;30% of 50000 = 0.3 * 50000 = 15000.&quot;},</p>
+<p>&nbsp; &nbsp; {id:46, section:&quot;Data Interpretation&quot;, topic:&quot;Caselet&quot;, difficulty:&quot;Medium&quot;, question:&quot;In a company of 500 employees, 20% are in HR, 50% in IT, and the rest in Sales. How many employees are in Sales?&quot;, options:[&quot;100&quot;,&quot;150&quot;,&quot;200&quot;,&quot;250&quot;], correctAnswer:&quot;150&quot;, explanation:&quot;HR + IT = 20% + 50% = 70%. Sales = 30%. 30% of 500 = 150.&quot;},</p>
+<p>&nbsp; &nbsp; {id:47, section:&quot;Data Interpretation&quot;, topic:&quot;Line Graphs&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Profits were 10M, 15M, 12M, 20M over 4 years. What is the percentage growth from Year 3 to Year 4?&quot;, options:[&quot;40%&quot;,&quot;66.67%&quot;,&quot;75%&quot;,&quot;80%&quot;], correctAnswer:&quot;66.67%&quot;, explanation:&quot;Growth = 20 - 12 = 8M. % = (8/12) * 100 = 66.67%.&quot;},</p>
+<p>&nbsp; &nbsp; {id:48, section:&quot;Data Interpretation&quot;, topic:&quot;Line Graphs&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Expenditure is constant at ₹10M. Revenue was ₹12M and ₹15M in two years. Find ratio of profit of Yr1 to Yr2.&quot;, options:[&quot;2:5&quot;,&quot;1:2&quot;,&quot;3:5&quot;,&quot;4:5&quot;], correctAnswer:&quot;2:5&quot;, explanation:&quot;Profit1 = 12-10 = 2M. Profit2 = 15-10 = 5M. Ratio = 2:5.&quot;},</p>
+<p>&nbsp; &nbsp; {id:49, section:&quot;Data Interpretation&quot;, topic:&quot;Mixed Graphs&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Total students = 1000. 40% are in Science. Of Science students, 60% are boys. How many girls are in Science?&quot;, options:[&quot;160&quot;,&quot;200&quot;,&quot;240&quot;,&quot;300&quot;], correctAnswer:&quot;160&quot;, explanation:&quot;Science students = 400. Girls in Science = 40% of 400 = 160.&quot;},</p>
+<p>&nbsp; &nbsp; {id:50, section:&quot;Data Interpretation&quot;, topic:&quot;Mixed Graphs&quot;, difficulty:&quot;Difficult&quot;, question:&quot;Population = 10,000. Annually increases by 10%. What is the population after 2 years?&quot;, options:[&quot;12,000&quot;,&quot;12,100&quot;,&quot;12,200&quot;,&quot;12,500&quot;], correctAnswer:&quot;12,100&quot;, explanation:&quot;Compound growth: 10000 * (1.1)^2 = 10000 * 1.21 = 12100.&quot;}</p>
+<p>];</p>
+<p><br></p>
+<p>// *** for quick ID lookup</p>
+<p>const questionDict = {};</p>
+<p>rawQuestionsDB.forEach(q =&gt; questionDict[q.id] = q);</p>
+<p><br></p>
+<p>/*&nbsp;</p>
+<p>=========================================</p>
+<p>STATE MANAGEMENT &amp; SHUFFLING</p>
+<p>=========================================</p>
+<p>*/</p>
+<p>*** currentQIndex = 0;</p>
+<p>*** questionOrder = []; // Array of Question IDs ** shuffled order</p>
+<p>let userAnswers = {};&nbsp;</p>
+<p>let markedReview = *** Set();</p>
+<p>let timerInterval;</p>
+<p>let timeRemaining = 65 * 60;&nbsp;</p>
+<p>let timeUsed = 0;</p>
+<p>let charts = {}; // Store Chart instances to destroy/re-render</p>
+<p><br></p>
+<p>// Fisher-Yates Shuffle Algorithm</p>
+<p>function shuffleArray(array) {</p>
+<p>&nbsp; &nbsp; let shuffled = [...array];</p>
+<p>&nbsp; &nbsp; for (let i = shuffled.length - 1; i &gt; 0; i--) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const j = Math.floor(Math.random() * (i + 1));</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; return shuffled;</p>
+<p>}</p>
+<p><br></p>
+<p>document.addEventListener(&apos;DOMContentLoaded&apos;, () =&gt; {</p>
+<p>&nbsp; &nbsp; if (localStorage.getItem(&apos;testActive&apos;) === &apos;true&apos;) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; restoreState();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; showScreen(&apos;test-screen&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; initPalette();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; renderQuestion();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; startTimer();</p>
+<p>&nbsp; &nbsp; }</p>
+<p>});</p>
+<p><br></p>
+<p>function showScreen(screenId) {</p>
+<p>&nbsp; &nbsp; document.querySelectorAll(&apos;.container&apos;).forEach(c =&gt; c.classList.add(&apos;hidden&apos;));</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;test-screen&apos;).classList.add(&apos;hidden&apos;); // specific handler</p>
+<p>&nbsp; &nbsp; document.getElementById(screenId).classList.remove(&apos;hidden&apos;);</p>
+<p>&nbsp; &nbsp; window.scrollTo(0,0);</p>
+<p>}</p>
+<p><br></p>
+<p>function startTest() {</p>
+<p>&nbsp; &nbsp; localStorage.setItem(&apos;testActive&apos;, &apos;true&apos;);</p>
+<p>&nbsp; &nbsp; timeRemaining = 65 * 60;</p>
+<p>&nbsp; &nbsp; ******** = 0;</p>
+<p>&nbsp; &nbsp; userAnswers = {};</p>
+<p>&nbsp; &nbsp; markedReview = new Set();</p>
+<p>&nbsp; &nbsp; ************* = 0;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; // Create Shuffled Order Array</p>
+<p>&nbsp; &nbsp; ***** ids = rawQuestionsDB.map(q =&gt; q.id);</p>
+<p>&nbsp; &nbsp; ************* = shuffleArray(ids);</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; saveState();</p>
+<p>&nbsp; &nbsp; showScreen(&apos;test-screen&apos;);</p>
+<p>&nbsp; &nbsp; initPalette();</p>
+<p>&nbsp; &nbsp; renderQuestion();</p>
+<p>&nbsp; &nbsp; startTimer();</p>
+<p>}</p>
+<p><br></p>
+<p>/*&nbsp;</p>
+<p>=========================================</p>
+<p>QUESTION RENDERING &amp; PALETTE</p>
+<p>=========================================</p>
+<p>*/</p>
+<p>function initPalette() {</p>
+<p>&nbsp; &nbsp; const container = document.getElementById(&apos;palette-container&apos;);</p>
+<p>&nbsp; &nbsp; container.innerHTML = &apos;&apos;;</p>
+<p>&nbsp; &nbsp; questionOrder.forEach((qId, index) =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ***** btn = document.createElement(&apos;button&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; btn.className = &apos;palette-btn&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; btn.innerText = ***** + 1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; btn.id = `pal-btn-${qId}`;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; btn.******* = () =&gt; jumpToQuestion(index);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; container.appendChild(btn);</p>
+<p>&nbsp; &nbsp; });</p>
+<p>&nbsp; &nbsp; updatePaletteUI();</p>
+<p>}</p>
+<p><br></p>
+<p>function renderQuestion() {</p>
+<p>&nbsp; &nbsp; const qId = questionOrder[currentQIndex];</p>
+<p>&nbsp; &nbsp; const q = questionDict[qId];</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;q-section-badge&apos;).innerText = q.section;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;q-difficulty&apos;).innerText = q.difficulty;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;q-number&apos;).********* = currentQIndex + 1;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;q-topic&apos;).innerText = q.topic;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;q-text&apos;).innerText = q.question;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; const optionsContainer = document.getElementById(&apos;options-container&apos;);</p>
+<p>&nbsp; &nbsp; optionsContainer.innerHTML = &apos;&apos;;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; ***** labels = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;];</p>
+<p>&nbsp; &nbsp; q.options.forEach((opt, idx) =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const label = document.createElement(&apos;label&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; label.className = &apos;option-label&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if (userAnswers[q.id] === opt) label.classList.add(&apos;selected&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const radio = document.createElement(&apos;input&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; radio.type = &apos;radio&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; radio.**** = &apos;option&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; radio.***** = opt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if (userAnswers[q.id] === opt) radio.checked = true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; radio.onchange = () =&gt; selectOption(q.id, opt);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; label.appendChild(radio);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; label.appendChild(document.createTextNode(`${labels[idx]}. ${opt}`));</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; optionsContainer.appendChild(label);</p>
+<p>&nbsp; &nbsp; });</p>
+<p><br></p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;btn-prev&apos;).******** = ************* === 0;</p>
+<p>&nbsp; &nbsp; const ******* = document.getElementById(&apos;btn-next&apos;);</p>
+<p>&nbsp; &nbsp; if (currentQIndex === questionOrder.length - 1) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; btnNext.********* = &quot;Save&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; btnNext.className = &quot;warning&quot;;</p>
+<p>&nbsp; &nbsp; } else {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; btnNext.innerText = &quot;Next &rarr;&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; btnNext.className = &quot;&quot;;</p>
+<p>&nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; const ******* = document.getElementById(&apos;btn-mark&apos;);</p>
+<p>&nbsp; &nbsp; btnMark.innerText = markedReview.has(q.id) ? &quot;★ Unmark Review&quot; : &quot;★ **** for Review&quot;;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; updatePaletteUI();</p>
+<p>}</p>
+<p><br></p>
+<p>function selectOption(qId, opt) {</p>
+<p>&nbsp; &nbsp; userAnswers[qId] = opt;</p>
+<p>&nbsp; &nbsp; saveState();</p>
+<p>&nbsp; &nbsp; renderQuestion();</p>
+<p>}</p>
+<p><br></p>
+<p>function clearResponse() {</p>
+<p>&nbsp; &nbsp; const qId = questionOrder[currentQIndex];</p>
+<p>&nbsp; &nbsp; delete userAnswers[qId];</p>
+<p>&nbsp; &nbsp; saveState();</p>
+<p>&nbsp; &nbsp; renderQuestion();</p>
+<p>}</p>
+<p><br></p>
+<p>function markForReview() {</p>
+<p>&nbsp; &nbsp; const qId = questionOrder[currentQIndex];</p>
+<p>&nbsp; &nbsp; if (markedReview.has(qId)) markedReview.delete(qId);</p>
+<p>&nbsp; &nbsp; else markedReview.add(qId);</p>
+<p>&nbsp; &nbsp; saveState();</p>
+<p>&nbsp; &nbsp; renderQuestion();</p>
+<p>}</p>
+<p><br></p>
+<p>function nextQuestion() {</p>
+<p>&nbsp; &nbsp; if (currentQIndex &lt; questionOrder.length - 1) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; currentQIndex++;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; renderQuestion();</p>
+<p>&nbsp; &nbsp; }</p>
+<p>}</p>
+<p><br></p>
+<p>function prevQuestion() {</p>
+<p>&nbsp; &nbsp; if (currentQIndex &gt; 0) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; currentQIndex--;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; renderQuestion();</p>
+<p>&nbsp; &nbsp; }</p>
+<p>}</p>
+<p><br></p>
+<p>function jumpToQuestion(index) {</p>
+<p>&nbsp; &nbsp; currentQIndex = index;</p>
+<p>&nbsp; &nbsp; renderQuestion();</p>
+<p>}</p>
+<p><br></p>
+<p>function updatePaletteUI() {</p>
+<p>&nbsp; &nbsp; questionOrder.forEach((qId, index) =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const btn = document.getElementById(`pal-btn-${qId}`);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ** (!btn) return;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; btn.className = &apos;palette-btn&apos;;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if (currentQIndex === index) btn.classList.add(&apos;active&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if (markedReview.has(qId)) btn.classList.add(&apos;marked&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; else if (userAnswers[qId]) btn.classList.add(&apos;answered&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; **** btn.classList.add(&apos;unanswered&apos;);</p>
+<p>&nbsp; &nbsp; });</p>
+<p>}</p>
+<p><br></p>
+<p>/*&nbsp;</p>
+<p>=========================================</p>
+<p>***** &amp; LOCAL STORAGE</p>
+<p>=========================================</p>
+<p>*/</p>
+<p>function startTimer() {</p>
+<p>&nbsp; &nbsp; clearInterval(timerInterval);</p>
+<p>&nbsp; &nbsp; updateTimerDisplay();</p>
+<p>&nbsp; &nbsp; timerInterval = setInterval(() =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; timeRemaining--;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; timeUsed++;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; saveState();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; updateTimerDisplay();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if (timeRemaining &lt;= 0) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(timerInterval);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; submitTest(false);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; }, 1000);</p>
+<p>}</p>
+<p><br></p>
+<p>function updateTimerDisplay() {</p>
+<p>&nbsp; &nbsp; ***** timerDiv = document.getElementById(&apos;timer&apos;);</p>
+<p>&nbsp; &nbsp; const m = Math.floor(************* / 60).toString().padStart(2, &apos;0&apos;);</p>
+<p>&nbsp; &nbsp; const s = (************* % 60).toString().padStart(2, &apos;0&apos;);</p>
+<p>&nbsp; &nbsp; timerDiv.innerText = `${m}:${s}`;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; timerDiv.className = &apos;timer&apos;;</p>
+<p>&nbsp; &nbsp; if (timeRemaining &lt;= 300) timerDiv.classList.add(&apos;danger&apos;);</p>
+<p>&nbsp; &nbsp; **** ** (timeRemaining &lt;= 600) timerDiv.classList.add(&apos;warning&apos;);</p>
+<p>}</p>
+<p><br></p>
+<p>function saveState() {</p>
+<p>&nbsp; &nbsp; const state = {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; timeRemaining, timeUsed, userAnswers,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; markedReview: Array.from(markedReview),</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; currentQIndex, questionOrder</p>
+<p>&nbsp; &nbsp; };</p>
+<p>&nbsp; &nbsp; localStorage.setItem(&apos;testState&apos;, JSON.stringify(state));</p>
+<p>}</p>
+<p><br></p>
+<p>function restoreState() {</p>
+<p>&nbsp; &nbsp; const state = JSON.parse(localStorage.getItem(&apos;testState&apos;));</p>
+<p>&nbsp; &nbsp; if (state) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; timeRemaining = state.timeRemaining;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; timeUsed = state.timeUsed || (65*60 - timeRemaining);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; userAnswers = state.userAnswers || {};</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; markedReview = new Set(state.markedReview || []);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; currentQIndex = state.currentQIndex || 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; questionOrder = state.questionOrder || rawQuestionsDB.map(q=&gt;q.id);</p>
+<p>&nbsp; &nbsp; }</p>
+<p>}</p>
+<p><br></p>
+<p>/*&nbsp;</p>
+<p>=========================================</p>
+<p>SUBMISSION &amp; VISUALIZATIONS (CHART.JS)</p>
+<p>=========================================</p>
+<p>*/</p>
+<p>function submitTest(askConfirm = true) {</p>
+<p>&nbsp; &nbsp; if (askConfirm) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const ***** = questionOrder.length - Object.keys(userAnswers).length;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if (!confirm(`Submit test? You have ${unans} unanswered questions.`)) return;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; clearInterval(timerInterval);</p>
+<p>&nbsp; &nbsp; localStorage.removeItem(&apos;testActive&apos;);</p>
+<p>&nbsp; &nbsp; localStorage.removeItem(&apos;testState&apos;);</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; calculateResults();</p>
+<p>&nbsp; &nbsp; showScreen(&apos;results-screen&apos;);</p>
+<p>}</p>
+<p><br></p>
+<p>function calculateResults() {</p>
+<p>&nbsp; &nbsp; *** correct = 0, ***** = 0, unanswered = 0;</p>
+<p>&nbsp; &nbsp; let sectionData = {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &quot;Numerical Ability&quot;: { c: 0, t: 0 },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &quot;Verbal Ability&quot;: { c: 0, t: 0 },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &quot;Reasoning Ability&quot;: { c: 0, t: 0 },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &quot;Quantitative Aptitude&quot;: { c: 0, t: 0 },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &quot;Data Interpretation&quot;: { c: 0, t: 0 }</p>
+<p>&nbsp; &nbsp; };</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; const *************** = document.getElementById(&apos;review-container&apos;);</p>
+<p>&nbsp; &nbsp; reviewContainer.********* = &apos;&apos;;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; // Evaluate ***** on ******** unshuffled array logic for review list</p>
+<p>&nbsp; &nbsp; rawQuestionsDB.forEach((q, idx) =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const userAns = userAnswers[q.id];</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; sectionData[q.section].t += 1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; let ********** = &apos;&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if (!userAns) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; unanswered++;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; statusHtml = `&lt;**** class=&quot;wrong-text&quot; style=&quot;color:var(--secondary)&quot;&gt;Not Attempted&lt;/span&gt;`;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; } else if (userAns === q.correctAnswer) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; correct++;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sectionData[q.section].c += 1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; statusHtml = `&lt;span class=&quot;correct-text&quot;&gt;Correct&lt;/span&gt;`;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; } else {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; wrong++;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; statusHtml = `&lt;span class=&quot;wrong-text&quot;&gt;Wrong (Your Answer: ${userAns})&lt;/span&gt;`;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ***** ********* = document.createElement(&apos;div&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; reviewDiv.className = &apos;review-q&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; reviewDiv.********* = `</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;font-weight:600; font-size:16px; margin-bottom:8px;&quot;&gt;${q.id}. ${q.question}&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;font-size:12px; color:var(--text-light); text-transform:uppercase; margin-bottom: 12px; font-weight:600;&quot;&gt;${q.section} | ${q.topic}&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style=&quot;margin-bottom: 8px;&quot;&gt;${statusHtml} &lt;span style=&quot;margin:0 10px; color:#cbd5e1;&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;correct-text&quot;&gt;Answer: ${q.correctAnswer}&lt;/span&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;explanation&quot;&gt;&lt;b&gt;Explanation:&lt;/b&gt; ${q.explanation}&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; `;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; reviewContainer.appendChild(reviewDiv);</p>
+<p>&nbsp; &nbsp; });</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; ***** total = rawQuestionsDB.length;</p>
+<p>&nbsp; &nbsp; const accuracy = correct + wrong &gt; 0 ? Math.round((correct / (correct + wrong)) * 100) : 0;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;r-score&apos;).innerText = `${correct}/${total}`;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;r-percent&apos;).innerText = `${Math.round((correct/total)*100)}%`;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;r-accuracy&apos;).innerText = `${accuracy}%`;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;r-time&apos;).innerText = `${Math.floor(timeUsed/60)}m ${timeUsed%60}s`;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; renderCharts(correct, wrong, unanswered, sectionData);</p>
+<p>}</p>
+<p><br></p>
+<p>function renderCharts(c, w, u, sData) {</p>
+<p>&nbsp; &nbsp; // Clear old charts if retaking</p>
+<p>&nbsp; &nbsp; if(charts.pie) charts.pie.destroy();</p>
+<p>&nbsp; &nbsp; if(charts.radar) charts.radar.destroy();</p>
+<p><br></p>
+<p>&nbsp; &nbsp; // 1. Doughnut Chart (Accuracy)</p>
+<p>&nbsp; &nbsp; const ctxPie = document.getElementById(&apos;accuracyChart&apos;).getContext(&apos;2d&apos;);</p>
+<p>&nbsp; &nbsp; charts.pie = new Chart(ctxPie, {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; type: &apos;doughnut&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; data: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; labels: [&apos;Correct&apos;, &apos;Wrong&apos;, &apos;Unanswered&apos;],</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; datasets: [{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data: [c, w, u],</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; backgroundColor: [&apos;#10b981&apos;, &apos;#ef4444&apos;, &apos;#cbd5e1&apos;],</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; borderWidth: 0,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hoverOffset: 4</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }]</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; options: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; responsive: true, maintainAspectRatio: false,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; plugins: { legend: { position: &apos;bottom&apos; } },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cutout: &apos;70%&apos;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; });</p>
+<p><br></p>
+<p>&nbsp; &nbsp; // 2. Radar Chart (Sectional Performance)</p>
+<p>&nbsp; &nbsp; const labels = Object.keys(sData);</p>
+<p>&nbsp; &nbsp; ***** dataPoints = labels.map(*** =&gt; sData[sec].t &gt; 0 ? Math.round((sData[sec].c / sData[sec].t)*100) : 0);</p>
+<p><br></p>
+<p>&nbsp; &nbsp; const ctxRadar = document.getElementById(&apos;radarChart&apos;).getContext(&apos;2d&apos;);</p>
+<p>&nbsp; &nbsp; charts.radar = new Chart(ctxRadar, {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; type: &apos;radar&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; data: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; labels: labels.map(l =&gt; l.replace(&apos;Ability&apos;,&apos;&apos;).replace(&apos;Aptitude&apos;,&apos;&apos;).trim()),</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; datasets: [{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label: &apos;Score %&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data: dataPoints,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; backgroundColor: &apos;rgba(79, 70, 229, 0.2)&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; borderColor: &apos;#4f46e5&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pointBackgroundColor: &apos;#4f46e5&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; borderWidth: 2</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }]</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; options: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; responsive: true, maintainAspectRatio: false,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; scales: { r: { min: 0, max: 100, ticks: { stepSize: 20 } } },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; plugins: { legend: { display: false } }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; });</p>
+<p>}</p>
+<p><br></p>
+<p>function toggleReview() {</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;review-container&apos;).classList.toggle(&apos;hidden&apos;);</p>
+<p>}</p>
+<p><br></p>
+<p>/*&nbsp;</p>
+<p>=========================================</p>
+<p>POWER ** EXPORT</p>
+<p>=========================================</p>
+<p>*/</p>
+<p>function exportPowerBI() {</p>
+<p>&nbsp; &nbsp; const testId = &quot;MOCK_&quot; + Date.now();</p>
+<p>&nbsp; &nbsp; const dateStr = new Date().toISOString();</p>
+<p>&nbsp; &nbsp; let csvContent = &quot;TestID,Date,QuestionID,Section,Topic,Difficulty,UserAnswer,CorrectAnswer,IsCorrect,TimeUsedSec\n&quot;;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; rawQuestionsDB.forEach(q =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const uAns = userAnswers[q.id] ? `&quot;${userAnswers[q.id].replace(/&quot;/g, &apos;&quot;&quot;&apos;)}&quot;` : &quot;Not Attempted&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const cAns = `&quot;${q.correctAnswer.replace(/&quot;/g, &apos;&quot;&quot;&apos;)}&quot;`;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ***** isCorrect = userAnswers[q.id] === q.correctAnswer ? 1 : 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; csvContent += `${testId},${dateStr},${q.id},${q.section},${q.topic},${q.difficulty},${uAns},${cAns},${isCorrect},${timeUsed}\n`;</p>
+<p>&nbsp; &nbsp; });</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; const blob = new Blob([csvContent], { type: &apos;text/csv;charset=utf-8;&apos; });</p>
+<p>&nbsp; &nbsp; const **** = document.createElement(&quot;a&quot;);</p>
+<p>&nbsp; &nbsp; link.href = URL.createObjectURL(blob);</p>
+<p>&nbsp; &nbsp; link.download = `PowerBI_MockData_${testId}.csv`;</p>
+<p>&nbsp; &nbsp; document.body.appendChild(link);</p>
+<p>&nbsp; &nbsp; link.click();</p>
+<p>&nbsp; &nbsp; document.body.removeChild(link);</p>
+<p>}</p>
+<p><br></p>
+<p>/*&nbsp;</p>
+<p>=========================================</p>
+<p>VIRTUAL CALCULATOR</p>
+<p>=========================================</p>
+<p>*/</p>
+<p>let ********* = &apos;&apos;;</p>
+<p>function toggleCalculator() {</p>
+<p>&nbsp; &nbsp; const **** = document.getElementById(&apos;calculator&apos;);</p>
+<p>&nbsp; &nbsp; calc.style.******* = calc.style.******* === &apos;block&apos; ? &apos;none&apos; : &apos;block&apos;;</p>
+<p>}</p>
+<p><br></p>
+<p>function calcInput(val) {</p>
+<p>&nbsp; &nbsp; calcValue += val;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;calc-display&apos;).value = calcValue;</p>
+<p>}</p>
+<p><br></p>
+<p>function calcClear() {</p>
+<p>&nbsp; &nbsp; calcValue = &apos;&apos;;</p>
+<p>&nbsp; &nbsp; document.getElementById(&apos;calc-display&apos;).***** = &apos;0&apos;;</p>
+<p>}</p>
+<p><br></p>
+<p>function calcSqrt() {</p>
+<p>&nbsp; &nbsp; try {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(calcValue === &apos;&apos;) calcValue = document.getElementById(&apos;calc-display&apos;).value;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ***** res = Math.sqrt(eval(calcValue));&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; calcValue = res.toString();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;calc-display&apos;).value = calcValue;</p>
+<p>&nbsp; &nbsp; } catch(e) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;calc-display&apos;).value = &apos;Error&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; calcValue = &apos;&apos;;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>}</p>
+<p><br></p>
+<p>function calcEval() {</p>
+<p>&nbsp; &nbsp; try {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ***** res = new Function(&apos;return &apos; + calcValue)();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; calcValue = res.toString();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;calc-display&apos;).value = calcValue;</p>
+<p>&nbsp; &nbsp; } catch(e) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;calc-display&apos;).***** = &apos;Error&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; calcValue = &apos;&apos;;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>}</p>
+<p>&lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<div style="color: red">Word to HTML trial - please <a href="https://wordtohtml.net/site/payment">Go PRO</a> to get whole HTML.</div>
